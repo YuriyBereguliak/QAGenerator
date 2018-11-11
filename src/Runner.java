@@ -38,21 +38,17 @@ public class Runner {
         ObjectStream sampleStream = null;
         try {
             sampleStream = new NameSampleDataStream(
-                    new PlainTextByLineStream(in, StandardCharsets.UTF_8));
+                    new PlainTextByLineStream(in, StandardCharsets.UTF_16));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-
-        // setting the parameters for training
-        TrainingParameters params = new TrainingParameters();
-        params.put(TrainingParameters.ITERATIONS_PARAM, 100);
-        params.put(TrainingParameters.CUTOFF_PARAM, 1);
 
         // training the model using TokenNameFinderModel class
         TokenNameFinderModel nameFinderModel = null;
         try {
             nameFinderModel = NameFinderME.train(LANGUAGE_UA, null, sampleStream,
-                    params, TokenNameFinderFactory.create(null, null, Collections.emptyMap(), new BioCodec()));
+                    TrainingParameters.defaultParams(),
+                    TokenNameFinderFactory.create(null, null, Collections.emptyMap(), new BioCodec()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,22 +62,23 @@ public class Runner {
             e.printStackTrace();
         }
 
-        String sentence = "Комп'ю́терна мере́жа — система зв'язку між двома чи більше комп'ютерами.";
+        String sentence = "Комп'ю́терна мере́жа — система зв'язку між двома чи більше комп'ютерами. Кооксіальні кабелі, виті пари";
+
+        String[] ukrSentence = WhitespaceTokenizer.INSTANCE.tokenize(sentence);
 
         // testing the model and printing the types it found in the input sentence
         TokenNameFinder nameFinder = new NameFinderME(nameFinderModel);
 
-        String[] testSentence = {"Alisa", "Fernandes", "is", "a", "tourist", "from", "Spain"};
-
         System.out.println("Finding types in the test sentence..");
-        Span[] names = nameFinder.find(testSentence);
+        Span[] names = nameFinder.find(ukrSentence);
         for (Span name : names) {
             String personName = "";
             for (int i = name.getStart(); i < name.getEnd(); i++) {
-                personName += testSentence[i] + " ";
+                personName += ukrSentence[i] + " ";
             }
             System.out.println(name.getType() + " : " + personName + "\t [probability=" + name.getProb() + "]");
         }
+        nameFinder.clearAdaptiveData();
     }
 
     //region Utility API
