@@ -1,5 +1,4 @@
 import opennlp.tools.namefind.*;
-import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.WhitespaceTokenizer;
 import opennlp.tools.util.*;
 import org.jetbrains.annotations.NotNull;

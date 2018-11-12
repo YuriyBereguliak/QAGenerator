@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QAGenerator.iml" filepath="$PROJECT_DIR$/QAGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generator.processor/generator.processor.iml" filepath="$PROJECT_DIR$/generator.processor/generator.processor.iml" />
     </modules>
   </component>
 </project>
