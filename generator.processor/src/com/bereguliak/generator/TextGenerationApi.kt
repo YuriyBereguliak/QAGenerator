@@ -1,5 +1,5 @@
 package com.bereguliak.generator
 
-interface TextGenerationManager {
+interface TextGenerationApi {
     fun runTextGenerator(sourceText: String)
 }

@@ -5,9 +5,9 @@ import com.bereguliak.generator.model.listeners.OnTextGeneratorResult
 import com.bereguliak.generator.processor.sentence.SentenceDetectorChain
 import com.bereguliak.generator.processor.tokenizer.TokensDetectorChain
 
-class TextGeneration(private val onTextGeneratorResult: OnTextGeneratorResult) : TextGenerationManager {
+class TextGeneration(private val onTextGeneratorResult: OnTextGeneratorResult) : TextGenerationApi {
 
-    //region TextGenerationManager
+    //region TextGenerationApi
     override fun runTextGenerator(sourceText: String) {
         val sentence = SentenceDetectorChain()
         sentence.linkWith(TokensDetectorChain())
