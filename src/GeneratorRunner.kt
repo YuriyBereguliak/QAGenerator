@@ -8,7 +8,5 @@ fun main(args: Array<String>) {
             System.out.println("Result :: $data")
         }
     })
-    textGeneration.runTextGenerator("Це є мій текст")
-    textGeneration.runTextGenerator("Це є мій текст номер 2")
-    textGeneration.runTextGenerator("Це є мій текст номер 4")
+    textGeneration.runTextGenerator("Це є мій текст. Це є мій текст номер 2. Це є мій текст номер 4.")
 }

@@ -13,7 +13,7 @@ class TokensDetectorChain : BaseGeneratorChain() {
             val result = WhitespaceTokenizer.INSTANCE.tokenize(sentence.text)
             data.tokens.add(Tokens(result))
         }
-        return data
+        return handleNext(data)
     }
     //endregion
 }

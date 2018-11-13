@@ -8,7 +8,7 @@ class SentenceDetectorChain : BaseGeneratorChain() {
     //region BaseGeneratorChain
     override fun handle(data: ReaderChunk): ReaderChunk {
 
-        return data
+        return handleNext(data)
     }
     //endregion
 }
