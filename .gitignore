@@ -14,4 +14,7 @@ hs_err_pid*
 ### Java template
 
 .idea/
-.out/
+out/production/generator.processor/com/bereguliak/generator/TextGenerationManager.class
+out/production/generator.processor/com/bereguliak/generator/core/
+out/production/generator.processor/com/bereguliak/generator/model/
+out/production/generator.processor/com/bereguliak/generator/processor/
