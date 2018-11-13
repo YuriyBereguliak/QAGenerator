@@ -3,7 +3,7 @@ import com.bereguliak.generator.model.entity.ReaderChunk
 import com.bereguliak.generator.model.listeners.OnTextGeneratorResult
 
 fun main(args: Array<String>) {
-    val textGeneration = TextGeneration(object : OnTextGeneratorResult() {
+    val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
             System.out.println("Result :: $data")
         }

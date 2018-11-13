@@ -4,7 +4,6 @@ import com.bereguliak.generator.model.entity.ReaderChunk
 
 abstract class BaseGeneratorChain : GeneratorChain {
 
-    private var data = ReaderChunk()
     private var nextChain: GeneratorChain? = null
 
     //region GeneratorChain
