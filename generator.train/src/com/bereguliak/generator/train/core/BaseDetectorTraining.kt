@@ -1,5 +1,6 @@
 package com.bereguliak.generator.train.core
 
+import com.bereguliak.generator.utility.logError
 import opennlp.tools.util.MarkableFileInputStreamFactory
 import opennlp.tools.util.PlainTextByLineStream
 import java.io.File
@@ -28,9 +29,9 @@ abstract class BaseDetectorTraining : BaseDetectorTrainingApi {
             train(plainStream)
             writeTrainedModelToFile()
         } catch (e: FileNotFoundException) {
-            System.err.print("BaseDetectorTraining :: ${e.message}")
+            e.logError()
         } catch (e1: IOException) {
-            System.err.print("BaseDetectorTraining :: ${e1.message}")
+            e1.logError()
         }
     }
     //endregion

@@ -2,8 +2,8 @@ package com.bereguliak.generator.train.ner
 
 import com.bereguliak.generator.train.MainTrainContainer.Companion.DEFAULT_LANGUAGE
 import com.bereguliak.generator.train.core.BaseDetectorTraining
-import com.bereguliak.generator.train.getNerBinModelPath
-import com.bereguliak.generator.train.getTrainPathName
+import com.bereguliak.generator.utility.getNerBinModelPath
+import com.bereguliak.generator.utility.getTrainPathName
 import opennlp.tools.namefind.*
 import opennlp.tools.util.PlainTextByLineStream
 import opennlp.tools.util.TrainingParameters

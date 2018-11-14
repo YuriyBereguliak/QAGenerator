@@ -2,8 +2,8 @@ package com.bereguliak.generator.train.sentence
 
 import com.bereguliak.generator.train.MainTrainContainer.Companion.DEFAULT_LANGUAGE
 import com.bereguliak.generator.train.core.BaseDetectorTraining
-import com.bereguliak.generator.train.getSentenceBinModelPath
-import com.bereguliak.generator.train.getTrainPathName
+import com.bereguliak.generator.utility.getSentenceBinModelPath
+import com.bereguliak.generator.utility.getTrainPathName
 import opennlp.tools.sentdetect.SentenceDetectorFactory
 import opennlp.tools.sentdetect.SentenceDetectorME
 import opennlp.tools.sentdetect.SentenceModel
