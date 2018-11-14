@@ -12,7 +12,7 @@ fun getTrainPathName() = FILE_TRAIN_DATA.getTrainModelsFilePath()
 
 fun getSentenceBinModelPath() = FILE_SENTENCE_MODEL.getModelsFilePath()
 
-fun getNerPathName() = FILE_NER_MODEL.getModelsFilePath()
+fun getNerBinModelPath() = FILE_NER_MODEL.getModelsFilePath()
 
 fun getTokenizerBinModel() = FILE_TOKENIZER_MODEL.getModelsFilePath()
 
