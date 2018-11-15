@@ -20,7 +20,7 @@ public class Runner {
     private static final String FILE_NER_MODEL = "ner-custom-model.bin";
 
     private static final String FILE_SENTENCE_TRAIN_UA = "UkraineTrainData.txt";
-    private static final String FILE_NER_MODEL_UA = "ner-network-model.bin";
+    private static final String FILE_NER_MODEL_UA = "ner-name-model.bin";
 
     private static final String LANGUAGE_EN = "en";
     private static final String LANGUAGE_UA = "uk";
@@ -45,7 +45,7 @@ public class Runner {
         // training the model using TokenNameFinderModel class
         TokenNameFinderModel nameFinderModel = null;
         try {
-            nameFinderModel = NameFinderME.train(LANGUAGE_UA, null, sampleStream,
+            nameFinderModel = NameFinderME.train(LANGUAGE_UA, "name", sampleStream,
                     TrainingParameters.defaultParams(),
                     TokenNameFinderFactory.create(null, null, Collections.emptyMap(), new BioCodec()));
         } catch (IOException e) {
@@ -61,7 +61,16 @@ public class Runner {
             e.printStackTrace();
         }
 
-        String sentence = "Комп'ю́терна мере́жа — система зв'язку між двома чи більше комп'ютерами. Кооксіальні кабелі, виті пари";
+        String sentence = "Комп'ютерна мережа система зв'язку між двома чи більше комп'ютерами. застосовується у разі " +
+                " Комп'ютерна мережа тестування складних програмних комплексів. " +
+                "Основними методами реінжинірингу є такі." +
+                "Оціночна функція є для того, щоб прийти до однозначного і по можливості найвигіднішого варіанту рішення навіть." +
+                " Матриця рішень доповнюється ще одним стовпчиком із найменших результатів еir кожного рядка." +
+                "Критерій Севіджа маємо розгялнути більш детально." +
+                "Оскільки матриця рішень будується завжди." +
+                "Також необхідно враховувати критерій Байеса-Лапласа, він є важливим при проведені обчислень." +
+                "Щодо застосування класичних критеріїв, вони є важливі." +
+                "Широко відома оцінка розподілу трудомісткості між фазами створення програмного продукту. ";
 
         String[] ukrSentence = WhitespaceTokenizer.INSTANCE.tokenize(sentence);
 
