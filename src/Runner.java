@@ -19,7 +19,7 @@ public class Runner {
     private static final String FILE_SENTENCE_TRAIN = "Sentence.txt";
     private static final String FILE_NER_MODEL = "ner-custom-model.bin";
 
-    private static final String FILE_SENTENCE_TRAIN_UA = "UkraineTrainData.txt";
+    private static final String FILE_SENTENCE_TRAIN_UA = "ner-name-train.txt";
     private static final String FILE_NER_MODEL_UA = "ner-name-model.bin";
 
     private static final String LANGUAGE_EN = "en";
