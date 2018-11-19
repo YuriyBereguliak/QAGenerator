@@ -8,3 +8,10 @@ fun Exception.logError() {
 fun String.log() {
     System.out.println("Debug :: $this")
 }
+
+fun <T> MutableList<T>.log(type: String) {
+    System.out.println("--------------$type----------------")
+    forEach {
+        System.out.println("$it \n")
+    }
+}

@@ -29,5 +29,6 @@
     <orderEntry type="library" name="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1" level="project" />
     <orderEntry type="module" module-name="generator.processor" />
     <orderEntry type="module" module-name="generator.train" />
+    <orderEntry type="module" module-name="generator.utility" />
   </component>
 </module>

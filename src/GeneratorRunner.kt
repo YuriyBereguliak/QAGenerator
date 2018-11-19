@@ -2,6 +2,7 @@ import com.bereguliak.generator.TextGeneration
 import com.bereguliak.generator.model.entity.ReaderChunk
 import com.bereguliak.generator.model.listeners.OnTextGeneratorResult
 import com.bereguliak.generator.train.MainTrainContainer
+import com.bereguliak.generator.utility.log
 
 fun main(args: Array<String>) {
     val trainer = MainTrainContainer()
@@ -11,13 +12,14 @@ fun main(args: Array<String>) {
 
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
-            System.out.println("Result :: ${data.sentences}")
-            System.out.println("Result :: ${data.tokens}")
-            System.out.println("Result :: ${data.trainedTokens}")
+            data.sentences.log("Sentence")
+            data.tokens.log("Tokens")
+            data.trainedTokens.log("Trained tokens")
         }
     })
+
     val sentence = "Комп'ютерна мережа — система зв'язку між двома чи більше комп'ютерами ." +
-            " Наступним кроком на шляху дослідження підходів, методів і технологій реінжинірингу. "+
+            " Наступним кроком на шляху дослідження підходів, методів і технологій реінжинірингу. " +
             " Тестування правил - це набір критеріїв. " +
             " Системи штучного інтелекту широко застосовуються." +
             " Мутації – дрібні помилки в програмі." +
