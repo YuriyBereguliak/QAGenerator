@@ -7,10 +7,13 @@ fun main(args: Array<String>) {
     val trainer = MainTrainContainer()
     trainer.trainSentenceDetectionModel()
     trainer.trainNerDetectionModel()
+    trainer.trainTokenizerModel()
 
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
-            System.out.println("Result :: $data")
+            System.out.println("Result :: ${data.sentences}")
+            System.out.println("Result :: ${data.tokens}")
+            System.out.println("Result :: ${data.trainedTokens}")
         }
     })
     val sentence = "Комп'ютерна мережа система зв'язку між двома чи більше комп'ютерами. застосовується у разі " +

@@ -40,7 +40,12 @@ abstract class BaseDetectorTraining : BaseDetectorTrainingApi {
     private fun writeTrainedModelToFile() {
         val output = File(getDestinationModelPath())
         val outputStream = FileOutputStream(output)
-        serializeModel(outputStream)
+        try {
+            serializeModel(outputStream)
+        } finally {
+            outputStream.flush()
+            outputStream.close()
+        }
     }
     //endregion
 }

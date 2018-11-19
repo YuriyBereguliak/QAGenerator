@@ -23,7 +23,7 @@ class TokenizerDetectorTraining : BaseDetectorTraining() {
 
     override fun train(lineStream: PlainTextByLineStream) {
         tokenizerModel = train(TokenSampleStream(lineStream),
-                TokenizerFactory(DEFAULT_LANGUAGE, null, true, null),
+                TokenizerFactory(DEFAULT_LANGUAGE, null, false, null),
                 TrainingParameters.defaultParams())
     }
 

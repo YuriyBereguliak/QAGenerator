@@ -12,7 +12,7 @@ const val FILE_CHUNKER_TRAIN_DATA = "chunker-train.txt"
 const val FILE_POS_TRAIN_DATA = "part-of-speech-train.txt"
 
 const val FILE_SENTENCE_MODEL = "sentence-model.bin"
-const val FILE_TOKENIZER_MODEL = "sentence-model.bin"
+const val FILE_TOKENIZER_MODEL = "tokenizer-model.bin"
 const val FILE_NER_NAME_MODEL = "ner-name-model.bin"
 const val FILE_CHUNKER_MODEL = "chunker-model.bin"
 const val FILE_POS_MODEL = "part-of-speech-model.bin"
