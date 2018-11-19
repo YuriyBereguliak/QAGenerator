@@ -1,20 +1,13 @@
 import com.bereguliak.generator.TextGeneration
 import com.bereguliak.generator.model.entity.ReaderChunk
 import com.bereguliak.generator.model.listeners.OnTextGeneratorResult
-import com.bereguliak.generator.train.MainTrainContainer
 import com.bereguliak.generator.utility.log
 
 fun main(args: Array<String>) {
-    val trainer = MainTrainContainer()
-    trainer.trainSentenceDetectionModel()
-    trainer.trainNerDetectionModel()
-    trainer.trainTokenizerModel()
-
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
             data.sentences.log("Sentence")
             data.tokens.log("Tokens")
-            data.trainedTokens.log("Trained tokens")
         }
     })
 
@@ -26,9 +19,11 @@ fun main(args: Array<String>) {
             " Мутанти – програми, що відрізняються одна від іншої мутаціями. " +
             " Тестування функцій – набір тестів у сукупності повинен забезпечити перевірку кожної дії. " +
             " Критерій повинен бути достатнім  , тобто показувати, коли деяка скінченна множина тестів достатня. " +
-            " Оцінка результатів виконання програми <END> на наборі тестів з метою ухвалення рішення про продовження або зупинку тестування. " +
+            " Оцінка результатів виконання програми на наборі тестів з метою ухвалення рішення про продовження або зупинку тестування. " +
             " Верифікація забезпечує відповідність результатів конкретної фази процесу розроблення вимогам. " +
-            " Атестація – гарантування того, що програмний продукт задовольняє системні вимоги."
+            " Атестація – гарантування того, що програмний продукт задовольняє системні вимоги. " +
+            " У 1978 Боем запропонував свою модель, яка є розширенням моделі МакКола. " +
+            " Кожен з учасників може мати різне уявлення про продукт і про те, наскільки він добрий чи поганий, тобто про те, наскільки висока якість продукту."
 
     textGeneration.runTextGenerator(sentence)
 }

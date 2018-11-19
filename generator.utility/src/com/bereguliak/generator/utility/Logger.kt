@@ -1,5 +1,9 @@
 package com.bereguliak.generator.utility
 
+fun String.logWithOffset(){
+    System.out.println("\n\n $this \n\n")
+}
+
 fun Exception.logError() {
     val e = this
     System.err.println("Error :: ${e.message}")
