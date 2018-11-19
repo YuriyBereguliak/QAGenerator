@@ -6,7 +6,7 @@ import com.bereguliak.generator.utility.getTokenizerBinModelPath
 import com.bereguliak.generator.utility.getTokenizerDetectorTrainPath
 import opennlp.tools.tokenize.TokenSampleStream
 import opennlp.tools.tokenize.TokenizerFactory
-import opennlp.tools.tokenize.TokenizerME.train
+import opennlp.tools.tokenize.TokenizerME
 import opennlp.tools.tokenize.TokenizerModel
 import opennlp.tools.util.PlainTextByLineStream
 import opennlp.tools.util.TrainingParameters
@@ -22,7 +22,7 @@ class TokenizerDetectorTraining : BaseDetectorTraining() {
     override fun getDestinationModelPath() = getTokenizerBinModelPath()
 
     override fun train(lineStream: PlainTextByLineStream) {
-        tokenizerModel = train(TokenSampleStream(lineStream),
+        tokenizerModel = TokenizerME.train(TokenSampleStream(lineStream),
                 TokenizerFactory(DEFAULT_LANGUAGE, null, false, null),
                 TrainingParameters.defaultParams())
     }
