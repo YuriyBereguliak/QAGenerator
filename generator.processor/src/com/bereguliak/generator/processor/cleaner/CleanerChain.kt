@@ -9,6 +9,10 @@ class CleanerChain : BaseGeneratorChain() {
         val result = data.sourceText
                 .replace(",", " ")
                 .replace("-", " ")
+                .replace(" – ", " ")
+                .replace(" –", " ")
+                .replace("–", " ")
+                .replace(" — ", " ")
                 .replace("...", " ")
         data.sourceText = result
         return handleNext(data)
