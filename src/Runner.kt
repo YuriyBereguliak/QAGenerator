@@ -1,14 +1,24 @@
+import com.bereguliak.generator.utility.log
+import com.bereguliak.generator.utility.logWithOffset
+import com.bereguliak.processor.builder.SimpleQuestionGenerator
+import com.bereguliak.processor.builder.TheseGenerator
 import com.bereguliak.processor.generator.TextGeneration
 import com.bereguliak.processor.model.entity.ReaderChunk
 import com.bereguliak.processor.model.listeners.OnTextGeneratorResult
-import com.bereguliak.generator.utility.log
 
 fun main(args: Array<String>) {
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
             data.sentences.log("Sentence")
             data.tokens.log("Tokens")
-            data.ner.log("NER theses")
+
+            val theses = TheseGenerator(data).generate()
+            theses.title.logWithOffset()
+            theses.theses.log()
+
+            val questions = SimpleQuestionGenerator(data).generate()
+            questions.title.logWithOffset()
+            questions.text.log()
         }
     })
 

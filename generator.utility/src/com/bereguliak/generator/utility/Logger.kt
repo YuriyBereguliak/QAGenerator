@@ -1,7 +1,7 @@
 package com.bereguliak.generator.utility
 
 fun String.logWithOffset(){
-    System.out.println("\n\n $this \n\n")
+    System.out.println("\n $this \n")
 }
 
 fun Exception.logError() {
@@ -10,7 +10,7 @@ fun Exception.logError() {
 }
 
 fun String.log() {
-    System.out.println("Debug :: $this")
+    System.out.println(this)
 }
 
 fun <T> MutableList<T>.log(type: String) {
