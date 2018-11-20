@@ -1,7 +1,7 @@
-package com.bereguliak.generator.processor.ner
+package com.bereguliak.processor.generator.processor.ner
 
-import com.bereguliak.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.generator.model.entity.ReaderChunk
+import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
+import com.bereguliak.processor.model.entity.ReaderChunk
 import com.bereguliak.generator.utility.getNerNameBinModelPath
 import com.bereguliak.generator.utility.log
 import opennlp.tools.namefind.NameFinderME

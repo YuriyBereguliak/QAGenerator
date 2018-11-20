@@ -1,8 +1,8 @@
-package com.bereguliak.generator.processor.tokenizer
+package com.bereguliak.processor.generator.processor.tokenizer
 
-import com.bereguliak.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.generator.model.entity.ReaderChunk
-import com.bereguliak.generator.model.entity.Tokens
+import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
+import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.Tokens
 
 class TokensDetectorChain : BaseGeneratorChain() {
 

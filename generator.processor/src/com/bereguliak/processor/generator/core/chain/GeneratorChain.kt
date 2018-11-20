@@ -1,6 +1,6 @@
-package com.bereguliak.generator.core.chain
+package com.bereguliak.processor.generator.core.chain
 
-import com.bereguliak.generator.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.ReaderChunk
 
 interface GeneratorChain {
     fun linkWith(chain: GeneratorChain): GeneratorChain

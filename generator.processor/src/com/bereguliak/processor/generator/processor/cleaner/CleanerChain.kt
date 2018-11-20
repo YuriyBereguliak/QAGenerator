@@ -1,7 +1,7 @@
-package com.bereguliak.generator.processor.cleaner
+package com.bereguliak.processor.generator.processor.cleaner
 
-import com.bereguliak.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.generator.model.entity.ReaderChunk
+import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
+import com.bereguliak.processor.model.entity.ReaderChunk
 
 class CleanerChain : BaseGeneratorChain() {
     //region BaseGeneratorChain

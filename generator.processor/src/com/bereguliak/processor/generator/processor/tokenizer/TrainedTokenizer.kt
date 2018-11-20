@@ -1,4 +1,4 @@
-package com.bereguliak.generator.processor.tokenizer
+package com.bereguliak.processor.generator.processor.tokenizer
 
 import com.bereguliak.generator.utility.getTokenizerBinModelPath
 import kotlinx.coroutines.Deferred

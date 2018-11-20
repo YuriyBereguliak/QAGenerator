@@ -1,8 +1,8 @@
-package com.bereguliak.generator.processor.sentence
+package com.bereguliak.processor.generator.processor.sentence
 
-import com.bereguliak.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.generator.model.entity.ReaderChunk
-import com.bereguliak.generator.model.entity.Sentence
+import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
+import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.Sentence
 import com.bereguliak.generator.utility.getSentenceBinModelPath
 import opennlp.tools.sentdetect.SentenceDetectorME
 import opennlp.tools.sentdetect.SentenceModel
