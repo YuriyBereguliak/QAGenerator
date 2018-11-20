@@ -21,8 +21,14 @@ class NerDetectorChain : BaseGeneratorChain() {
             var name = ""
             names.forEach { span ->
                 for (i in span.start until span.end) {
-                    name += token.tokens[i] + " \n"
+                    val part = token.tokens[i]
+                    if (part.isNotEmpty()) {
+                        name += "$part "
+                    }
                 }
+            }
+            if (name.isNotEmpty()) {
+                data.ner.add(name)
             }
 
             token.tokens.toList().toString().log()

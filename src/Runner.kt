@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
         override fun onResult(data: ReaderChunk) {
             data.sentences.log("Sentence")
             data.tokens.log("Tokens")
+            data.ner.log("NER theses")
         }
     })
 
