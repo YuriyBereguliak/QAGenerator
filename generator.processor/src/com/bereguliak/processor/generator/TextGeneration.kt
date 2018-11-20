@@ -1,11 +1,11 @@
-package com.bereguliak.generator
+package com.bereguliak.processor.generator
 
-import com.bereguliak.generator.model.entity.ReaderChunk
-import com.bereguliak.generator.model.listeners.OnTextGeneratorResult
-import com.bereguliak.generator.processor.cleaner.CleanerChain
-import com.bereguliak.generator.processor.ner.NerDetectorChain
-import com.bereguliak.generator.processor.sentence.SentenceDetectorChain
-import com.bereguliak.generator.processor.tokenizer.TokensDetectorChain
+import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.listeners.OnTextGeneratorResult
+import com.bereguliak.processor.generator.processor.cleaner.CleanerChain
+import com.bereguliak.processor.generator.processor.ner.NerDetectorChain
+import com.bereguliak.processor.generator.processor.sentence.SentenceDetectorChain
+import com.bereguliak.processor.generator.processor.tokenizer.TokensDetectorChain
 
 class TextGeneration(private val onTextGeneratorResult: OnTextGeneratorResult) : TextGenerationApi {
 

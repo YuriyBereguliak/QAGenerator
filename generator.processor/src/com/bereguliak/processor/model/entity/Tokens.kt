@@ -1,4 +1,4 @@
-package com.bereguliak.generator.model.entity
+package com.bereguliak.processor.model.entity
 
 data class Tokens(var tokens: Array<String>) {
 

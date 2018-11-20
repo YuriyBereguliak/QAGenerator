@@ -1,4 +1,4 @@
-package com.bereguliak.generator.model.entity
+package com.bereguliak.processor.model.entity
 
 data class ReaderChunk(var sourceText: String,
                        var sentences: MutableList<Sentence> = mutableListOf(),
