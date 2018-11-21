@@ -28,5 +28,15 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="generator.utility" />
+    <orderEntry type="module" module-name="generator.algorithms" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../libs/opennlp-maxent-3.0.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
