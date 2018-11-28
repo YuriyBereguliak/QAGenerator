@@ -1,3 +1,4 @@
+import com.bereguliak.configuration.*
 import com.bereguliak.generator.utility.log
 import com.bereguliak.generator.utility.logWithOffset
 import com.bereguliak.processor.builder.SimpleQuestionGenerator
@@ -7,6 +8,14 @@ import com.bereguliak.processor.model.entity.ReaderChunk
 import com.bereguliak.processor.model.listeners.OnTextGeneratorResult
 
 fun main(args: Array<String>) {
+    val generatorConfiguration = GeneratorConfiguration()
+    generatorConfiguration.tokenizerModelPath = getTokenizerBinModelPath()
+    generatorConfiguration.sentenceModelPath = getSentenceBinModelPath()
+    generatorConfiguration.chunkerModelPath = getChunkerModelPath()
+    generatorConfiguration.nerModelPath = getNerNameBinModelPath()
+    generatorConfiguration.posModelPath = getPosBinModelPath()
+    val config = generatorConfiguration.build()
+
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
         override fun onResult(data: ReaderChunk) {
             data.sentences.log("Sentence")

@@ -13,11 +13,13 @@ class NearMaxEatClassifier : BaseGeneratorChain() {
     //region BaseGeneratorChain
     override fun handle(data: ReaderChunk): ReaderChunk {
         val mutableListOf = mutableListOf(
-                MaxentDataModel("1", "Комп'ютер"),
-                MaxentDataModel("1", "Штучний інтелект"),
-                MaxentDataModel("1", "Мережі"),
-                MaxentDataModel("1", "комутатор"),
-                MaxentDataModel("2", "комутатор мережевий пристрій")
+                MaxentDataModel("Комп'ютер", "Комп'ютер"),
+                MaxentDataModel("штучний інтелект", "штучний інтелект"),
+                MaxentDataModel("штучний інтелект", "Штучний інтелект"),
+                MaxentDataModel("Мережі", "Мережі"),
+                MaxentDataModel("комутатор", "комутатор"),
+                MaxentDataModel("комутатор", "Кмутатор"),
+                MaxentDataModel("комутатор мережевий пристрій", "комутатор мережевий пристрій")
         )
         val stream = PlainTextEventStream(mutableListOf)
         val model = GIS.trainModel(stream, 100, 1, false, true)

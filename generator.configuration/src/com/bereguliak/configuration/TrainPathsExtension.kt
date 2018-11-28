@@ -1,4 +1,4 @@
-package com.bereguliak.generator.utility
+package com.bereguliak.configuration
 
 import java.io.File
 
