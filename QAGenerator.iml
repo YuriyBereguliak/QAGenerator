@@ -31,5 +31,6 @@
     <orderEntry type="module" module-name="generator.train" />
     <orderEntry type="module" module-name="generator.utility" />
     <orderEntry type="module" module-name="generator.configuration" />
+    <orderEntry type="module" module-name="configurator" />
   </component>
 </module>

@@ -1,9 +1,8 @@
 package com.bereguliak.generator.train.sentence
 
+import com.bereguliak.configuration.train.TrainConfig
 import com.bereguliak.generator.train.MainTrainContainer.Companion.DEFAULT_LANGUAGE
 import com.bereguliak.generator.train.core.BaseDetectorTraining
-import com.bereguliak.generator.utility.getSentenceBinModelPath
-import com.bereguliak.generator.utility.getSentenceDetectorTrainPath
 import opennlp.tools.sentdetect.SentenceDetectorFactory
 import opennlp.tools.sentdetect.SentenceDetectorME
 import opennlp.tools.sentdetect.SentenceModel
@@ -12,14 +11,14 @@ import opennlp.tools.util.PlainTextByLineStream
 import opennlp.tools.util.TrainingParameters
 import java.io.FileOutputStream
 
-class SentenceDetectorTraining : BaseDetectorTraining() {
+class SentenceDetectorTraining(private val config: TrainConfig) : BaseDetectorTraining() {
 
     private lateinit var sentenceModel: SentenceModel
 
     //region BaseDetectorTraining
-    override fun getTrainPath() = getSentenceDetectorTrainPath()
+    override fun getTrainPath() = config.sentenceTrainPath
 
-    override fun getDestinationModelPath() = getSentenceBinModelPath()
+    override fun getDestinationModelPath() = config.sentenceModelPath
 
     override fun train(lineStream: PlainTextByLineStream) {
         sentenceModel = SentenceDetectorME.train(DEFAULT_LANGUAGE,

@@ -14,6 +14,7 @@ class NearMaxEatClassifier : BaseGeneratorChain() {
     override fun handle(data: ReaderChunk): ReaderChunk {
         val mutableListOf = mutableListOf(
                 MaxentDataModel("Комп'ютер", "Комп'ютер"),
+                MaxentDataModel("штучний інтелект", "Системи штучного інтелекту"),
                 MaxentDataModel("штучний інтелект", "штучний інтелект"),
                 MaxentDataModel("штучний інтелект", "Штучний інтелект"),
                 MaxentDataModel("Мережі", "Мережі"),
@@ -23,7 +24,7 @@ class NearMaxEatClassifier : BaseGeneratorChain() {
         )
         val stream = PlainTextEventStream(mutableListOf)
         val model = GIS.trainModel(stream, 100, 1, false, true)
-        val result = model.eval(buildContext("комутатор"))
+        val result = model.eval(buildContext(data.sourceText))
         model.getBestOutcome(result).log()
         return handleNext(data)
     }
