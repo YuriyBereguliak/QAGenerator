@@ -1,6 +1,6 @@
 package com.bereguliak.processor.generator.core.chain
 
-import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.DataChain
 
 abstract class BaseGeneratorChain : GeneratorChain {
 
@@ -12,7 +12,7 @@ abstract class BaseGeneratorChain : GeneratorChain {
         return chain
     }
 
-    override fun handleNext(data: ReaderChunk): ReaderChunk {
+    override fun handleNext(data: DataChain): DataChain {
         return if (nextChain == null) {
             data
         } else {

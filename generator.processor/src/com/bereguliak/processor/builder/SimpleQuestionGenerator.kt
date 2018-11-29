@@ -6,10 +6,10 @@ import com.bereguliak.generator.utility.GlobalConst.SimpleQuestions.Companion.SI
 import com.bereguliak.generator.utility.GlobalConst.Strings.Companion.DEFAULT_SIMPLE_QUESTION_TITLE
 import com.bereguliak.processor.builder.core.BaseBuilder
 import com.bereguliak.processor.model.entity.Question
-import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.DataChain
 
 
-class SimpleQuestionGenerator(data: ReaderChunk) : BaseBuilder<Question>(data) {
+class SimpleQuestionGenerator(data: DataChain) : BaseBuilder<Question>(data) {
     //region BaseBuilder
     override fun generate(): Question {
         val result = data.ner

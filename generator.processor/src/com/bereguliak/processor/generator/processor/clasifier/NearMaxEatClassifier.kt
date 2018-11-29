@@ -5,13 +5,13 @@ import com.bereguliak.maxent.model.MaxentDataModel
 import com.bereguliak.maxent.stream.PlainTextEventStream
 import com.bereguliak.maxent.stream.PlainTextEventStream.Companion.buildContext
 import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.DataChain
 import opennlp.maxent.GIS
 
 class NearMaxEatClassifier : BaseGeneratorChain() {
 
     //region BaseGeneratorChain
-    override fun handle(data: ReaderChunk): ReaderChunk {
+    override fun handle(data: DataChain): DataChain {
         val mutableListOf = mutableListOf(
                 MaxentDataModel("Комп'ютер", "Комп'ютер"),
                 MaxentDataModel("штучний інтелект", "Системи штучного інтелекту"),
