@@ -10,7 +10,7 @@ class SimpleGoogleSearchGenerator(data: DataChain) : BaseBuilder<List<SearchData
     //region BaseBuilder
     override fun generate(): List<SearchData> {
         val resultList = mutableListOf<SearchData>()
-        data.ner.forEach { ner ->
+        data.ner.distinct().forEach { ner ->
             val searchURL = "$GOOGLE_SEARCH_URL$QUESTION$ner$NUMBER$GOOGLE_SEARCH_RESULT_FOR_ITEM"
             val doc = Jsoup.connect(searchURL).userAgent(MOZILLA_AGENT).get()
             val results = doc.select(CSS_QUERY)
