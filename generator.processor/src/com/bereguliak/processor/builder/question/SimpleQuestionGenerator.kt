@@ -1,4 +1,4 @@
-package com.bereguliak.processor.builder
+package com.bereguliak.processor.builder.question
 
 import com.bereguliak.generator.utility.GlobalConst.SimpleQuestions.Companion.SIMPLE_DEFINITION
 import com.bereguliak.generator.utility.GlobalConst.SimpleQuestions.Companion.SIMPLE_DESCRIBE

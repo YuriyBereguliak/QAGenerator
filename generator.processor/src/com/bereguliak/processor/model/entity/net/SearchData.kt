@@ -1,4 +1,5 @@
 package com.bereguliak.processor.model.entity.net
 
-data class SearchData(var title: String = "",
-                      var url: String = "")
+data class SearchData(val name: String,
+                      val title: String,
+                      val url: String)

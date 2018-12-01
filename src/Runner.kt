@@ -2,9 +2,9 @@ import com.bereguliak.configuration.*
 import com.bereguliak.configuration.processor.ProcessorConfig
 import com.bereguliak.generator.utility.log
 import com.bereguliak.generator.utility.logWithOffset
-import com.bereguliak.processor.builder.SimpleGoogleSearchGenerator
-import com.bereguliak.processor.builder.SimpleQuestionGenerator
-import com.bereguliak.processor.builder.TheseGenerator
+import com.bereguliak.processor.builder.search.SimpleGoogleSearchGenerator
+import com.bereguliak.processor.builder.question.SimpleQuestionGenerator
+import com.bereguliak.processor.builder.these.TheseGenerator
 import com.bereguliak.processor.generator.TextGeneration
 import com.bereguliak.processor.model.entity.DataChain
 import com.bereguliak.processor.model.listeners.OnTextGeneratorResult
