@@ -2,6 +2,7 @@ import com.bereguliak.configuration.*
 import com.bereguliak.configuration.processor.ProcessorConfig
 import com.bereguliak.generator.utility.log
 import com.bereguliak.generator.utility.logWithOffset
+import com.bereguliak.processor.builder.SimpleGoogleSearchGenerator
 import com.bereguliak.processor.builder.SimpleQuestionGenerator
 import com.bereguliak.processor.builder.TheseGenerator
 import com.bereguliak.processor.generator.TextGeneration
@@ -29,6 +30,9 @@ fun main(args: Array<String>) {
             val questions = SimpleQuestionGenerator(data).generate()
             questions.title.logWithOffset()
             questions.text.log()
+
+            val query = SimpleGoogleSearchGenerator(data).generate()
+            query.toMutableList().log("Посилання для навчання")
         }
     })
 
