@@ -35,7 +35,10 @@
             <constraints>
               <splitpane position="right"/>
             </constraints>
-            <properties/>
+            <properties>
+              <lineWrap value="true"/>
+              <wrapStyleWord value="true"/>
+            </properties>
           </component>
           <component id="99d48" class="javax.swing.JTextArea" binding="textAreaSourceText">
             <constraints>

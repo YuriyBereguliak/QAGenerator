@@ -2,14 +2,18 @@ package com.bereguliak.ui.controllers.main;
 
 import com.bereguliak.configuration.processor.ProcessorConfig;
 import com.bereguliak.generator.utility.annotations.LateInit;
-import com.bereguliak.processor.builder.SimpleQuestionGenerator;
-import com.bereguliak.processor.builder.TheseGenerator;
+import com.bereguliak.processor.builder.question.SimpleQuestionGenerator;
+import com.bereguliak.processor.builder.search.SimpleGoogleSearchGenerator;
+import com.bereguliak.processor.builder.these.TheseGenerator;
 import com.bereguliak.processor.generator.TextGeneration;
 import com.bereguliak.processor.model.entity.DataChain;
 import com.bereguliak.processor.model.entity.Question;
 import com.bereguliak.processor.model.entity.Theses;
+import com.bereguliak.processor.model.entity.net.SearchData;
 import com.bereguliak.processor.model.listeners.OnTextGeneratorResult;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 import static com.bereguliak.configuration.DefaultTrainPathsExtensionKt.*;
 import static com.bereguliak.generator.utility.LoggerKt.log;
@@ -34,7 +38,7 @@ public class MainController implements MainControllerApi, OnTextGeneratorResult 
     //region MainControllerApi
     @Override
     public void startGenerator(@NotNull String sourceText) {
-        mTextGeneration.runTextGenerator(sourceText, mProcessorConfig);
+        new Thread(() -> mTextGeneration.runTextGenerator(sourceText, mProcessorConfig)).start();
     }
     //endregion
 
@@ -46,8 +50,9 @@ public class MainController implements MainControllerApi, OnTextGeneratorResult 
 
         Theses theses = new TheseGenerator(data).generate();
         Question questions = new SimpleQuestionGenerator(data).generate();
+        List<SearchData> searchData = new SimpleGoogleSearchGenerator(data).generate();
 
-        mOnMainTextGeneratorResult.onGeneratorResult(theses, questions);
+        mOnMainTextGeneratorResult.onGeneratorResult(theses, questions, searchData);
     }
     //endregion
 

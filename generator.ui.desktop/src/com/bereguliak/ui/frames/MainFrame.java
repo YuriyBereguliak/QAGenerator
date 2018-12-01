@@ -1,6 +1,7 @@
 package com.bereguliak.ui.frames;
 
 import com.bereguliak.generator.utility.annotations.LateInit;
+import com.bereguliak.processor.model.entity.net.SearchData;
 import com.bereguliak.ui.controllers.main.MainController;
 import com.bereguliak.ui.controllers.main.MainControllerApi;
 import com.bereguliak.ui.core.BaseFrame;
@@ -35,14 +36,25 @@ public class MainFrame extends BaseFrame {
 
     //region Utility API
     private void initMainController() {
-        mainController = new MainController((theses, question) -> {
-            String stringBuilder = theses.getTitle() +
+        mainController = new MainController((theses, question, searchData) -> {
+            StringBuilder stringBuilder = new StringBuilder(theses.getTitle() +
                     "\n" +
                     theses.getTheses() +
                     "\n\n" +
                     question.getTitle() +
-                    question.getText();
-            textAreaResultText.setText(stringBuilder);
+                    "\n"+
+                    question.getText() +
+                    "\n\n");
+
+            for (SearchData search : searchData) {
+                stringBuilder.append(search.getName())
+                        .append("\n")
+                        .append(search.getTitle())
+                        .append("\n")
+                        .append(search.getUrl());
+            }
+
+            textAreaResultText.setText(stringBuilder.toString());
         });
     }
 
