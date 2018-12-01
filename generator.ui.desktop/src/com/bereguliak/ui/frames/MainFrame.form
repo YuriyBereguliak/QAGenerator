@@ -28,24 +28,40 @@
         <properties>
           <continuousLayout value="false"/>
           <dividerLocation value="200"/>
+          <dividerSize value="15"/>
         </properties>
         <border type="none"/>
         <children>
-          <component id="38dcd" class="javax.swing.JTextArea" binding="textAreaResultText">
+          <scrollpane id="745f6">
             <constraints>
               <splitpane position="right"/>
             </constraints>
-            <properties>
-              <lineWrap value="true"/>
-              <wrapStyleWord value="true"/>
-            </properties>
-          </component>
-          <component id="99d48" class="javax.swing.JTextArea" binding="textAreaSourceText">
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="cee60" class="javax.swing.JTextArea" binding="textAreaResultText">
+                <constraints/>
+                <properties>
+                  <lineWrap value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="1dbe0">
             <constraints>
               <splitpane position="left"/>
             </constraints>
             <properties/>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="360d1" class="javax.swing.JTextArea" binding="textAreaSourceText">
+                <constraints/>
+                <properties>
+                  <lineWrap value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </splitpane>
     </children>
