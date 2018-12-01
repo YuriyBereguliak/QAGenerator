@@ -7,15 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="KotlinJavaRuntime (6)" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime (10)" level="project" />
+    <orderEntry type="module" module-name="generator.processor" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../libs/opennlp-tools-1.9.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/16.0.2/annotations-16.0.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="configurator" />
+    <orderEntry type="module" module-name="generator.utility" />
   </component>
 </module>
