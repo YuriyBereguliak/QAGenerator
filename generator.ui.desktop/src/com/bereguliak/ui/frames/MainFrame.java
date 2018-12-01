@@ -42,7 +42,7 @@ public class MainFrame extends BaseFrame {
                     theses.getTheses() +
                     "\n\n" +
                     question.getTitle() +
-                    "\n"+
+                    "\n" +
                     question.getText() +
                     "\n\n");
 
@@ -51,7 +51,8 @@ public class MainFrame extends BaseFrame {
                         .append("\n")
                         .append(search.getTitle())
                         .append("\n")
-                        .append(search.getUrl());
+                        .append(search.getUrl())
+                        .append("\n\n");
             }
 
             textAreaResultText.setText(stringBuilder.toString());
