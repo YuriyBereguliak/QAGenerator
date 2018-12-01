@@ -1,4 +1,4 @@
-package com.bereguliak.processor.builder
+package com.bereguliak.processor.builder.these
 
 import com.bereguliak.generator.utility.GlobalConst.Strings.Companion.DEFAULT_THESES_TITLE
 import com.bereguliak.processor.builder.core.BaseBuilder

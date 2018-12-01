@@ -7,6 +7,7 @@ class CleanerChain : BaseGeneratorChain() {
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
         val result = data.sourceText
+                .replace("[^0-9\\-+*?=&%$§!^#:;\\\\\",_²³°\\[\\]{}<>|~]"," ")
                 .replace(",", " ")
                 .replace("-", " ")
                 .replace(" – ", " ")
