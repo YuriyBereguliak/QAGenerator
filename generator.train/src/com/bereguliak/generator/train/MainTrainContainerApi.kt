@@ -10,4 +10,6 @@ interface MainTrainContainerApi {
     fun trainChunkerModel()
 
     fun trainPosModel()
+
+    fun trainPluralModel()
 }

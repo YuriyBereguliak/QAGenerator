@@ -16,6 +16,7 @@ class SimpleQuestionGenerator(data: DataChain) : BaseBuilder<Question>(data) {
     override fun generate(): Question {
         val sentenceFactory: SentenceFactory = SentenceTypeFactory()
         val result = data.ner
+                .union(data.classifier)
                 .distinct()
                 .withIndex()
                 .joinToString(separator = "\n") { (index, value) ->

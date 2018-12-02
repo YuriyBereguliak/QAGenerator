@@ -21,6 +21,9 @@ fun main(args: Array<String>) {
 
         posModelPath = getPosBinModelPath()
         posTrainPath = getPosTrainPath()
+
+        pluralModelPath = getPluralModelPath()
+        pluralTrainPath = getPluralTrainPath()
     }
 
     val trainer = MainTrainContainer(config)
@@ -32,6 +35,9 @@ fun main(args: Array<String>) {
 
     "Training Tokenizer model".logWithOffset()
     trainer.trainTokenizerModel()
+
+    "Training Plural model".logWithOffset()
+    trainer.trainPluralModel()
 
 //    "Training Part of speech model".logWithOffset()
 //    trainer.trainPosModel()

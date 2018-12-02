@@ -2,6 +2,7 @@ package com.bereguliak.generator.train
 
 import com.bereguliak.configuration.train.TrainConfig
 import com.bereguliak.generator.train.chunker.ChunkerDetectorTrain
+import com.bereguliak.generator.train.classifier.PluralClassifierTrain
 import com.bereguliak.generator.train.ner.NerDetectorTraining
 import com.bereguliak.generator.train.pos.PosDetectorTraining
 import com.bereguliak.generator.train.sentence.SentenceDetectorTraining
@@ -28,6 +29,10 @@ class MainTrainContainer(private val config: TrainConfig) : MainTrainContainerAp
 
     override fun trainPosModel() {
         PosDetectorTraining(config).trainModel()
+    }
+
+    override fun trainPluralModel() {
+        PluralClassifierTrain(config).train()
     }
     //endregion
 

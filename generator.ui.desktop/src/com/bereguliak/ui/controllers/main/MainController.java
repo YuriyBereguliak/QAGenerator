@@ -64,6 +64,7 @@ public class MainController implements MainControllerApi, OnTextGeneratorResult 
         builder.setNerModelPath(getNerNameBinModelPath());
         builder.setChunkerModelPath(getChunkerModelPath());
         builder.setPosModelPath(getPosBinModelPath());
+        builder.setPluralModelPath(getPluralModelPath());
         mProcessorConfig = builder.build();
     }
     //endregion

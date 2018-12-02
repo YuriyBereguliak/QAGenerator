@@ -4,13 +4,15 @@ data class ProcessorConfig(val sentenceModelPath: String,
                            val tokenizerModelPath: String,
                            val nerModelPath: String,
                            val chunkerModelPath: String,
-                           val posModelPath: String) {
+                           val posModelPath: String,
+                           val pluralModelPath: String) {
 
     private constructor(builder: Builder) : this(builder.sentenceModelPath,
             builder.tokenizerModelPath,
             builder.nerModelPath,
             builder.chunkerModelPath,
-            builder.posModelPath)
+            builder.posModelPath,
+            builder.pluralModelPath)
 
     //region Utility structures
     companion object {
@@ -23,6 +25,7 @@ data class ProcessorConfig(val sentenceModelPath: String,
         var nerModelPath: String = ""
         var chunkerModelPath: String = ""
         var posModelPath: String = ""
+        var pluralModelPath: String = ""
 
         fun build() = ProcessorConfig(this)
     }

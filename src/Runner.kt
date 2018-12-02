@@ -2,8 +2,8 @@ import com.bereguliak.configuration.*
 import com.bereguliak.configuration.processor.ProcessorConfig
 import com.bereguliak.generator.utility.log
 import com.bereguliak.generator.utility.logWithOffset
-import com.bereguliak.processor.builder.search.SimpleGoogleSearchGenerator
 import com.bereguliak.processor.builder.question.SimpleQuestionGenerator
+import com.bereguliak.processor.builder.search.SimpleGoogleSearchGenerator
 import com.bereguliak.processor.builder.these.TheseGenerator
 import com.bereguliak.processor.generator.TextGeneration
 import com.bereguliak.processor.model.entity.DataChain
@@ -16,6 +16,7 @@ fun main(args: Array<String>) {
         chunkerModelPath = getChunkerModelPath()
         nerModelPath = getNerNameBinModelPath()
         posModelPath = getPosBinModelPath()
+        pluralModelPath = getPluralModelPath()
     }
 
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
