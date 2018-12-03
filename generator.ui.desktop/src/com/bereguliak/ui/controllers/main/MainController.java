@@ -45,8 +45,6 @@ public class MainController implements MainControllerApi, OnTextGeneratorResult 
     //region OnTextGeneratorResult
     @Override
     public void onResult(@NotNull DataChain data) {
-        log(data.getSentences(), "Sentence");
-        log(data.getTokens(), "Tokens");
 
         Theses theses = new TheseGenerator(data).generate();
         Question questions = new SimpleQuestionGenerator(data).generate();

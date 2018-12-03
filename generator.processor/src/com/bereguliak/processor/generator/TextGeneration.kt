@@ -23,7 +23,7 @@ class TextGeneration(private val onTextGeneratorResult: OnTextGeneratorResult) :
                     .linkWith(SentenceDetectorChain())
                     .linkWith(TokensDetectorChain())
                     .linkWith(NerDetectorChain())
-                    .linkWith(NearMaxentClassifier())
+//                    .linkWith(NearMaxentClassifier())
                     .linkWith(PluralMaxentClassifier())
 
             val result = async {

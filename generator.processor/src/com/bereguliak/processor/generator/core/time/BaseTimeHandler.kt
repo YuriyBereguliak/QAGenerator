@@ -16,8 +16,13 @@ abstract class BaseTimeHandler : TimeHandler, TimeController {
     override fun endTime(numberOfItems: Int) {
         endTime = System.currentTimeMillis()
 
-        "Statistics :: ${methodName()} :: number of items :: $numberOfItems :: time :: ${endTime - startTime}"
+        ("Statistics :: ${methodName()} :: number of items :: $numberOfItems :: time :: " +
+                "${calculateExecutionTime()} seconds")
                 .logWithOffset()
     }
+    //endregion
+
+    //region Utility API
+    private fun calculateExecutionTime() = ((endTime - startTime) / 1000) % 60
     //endregion
 }

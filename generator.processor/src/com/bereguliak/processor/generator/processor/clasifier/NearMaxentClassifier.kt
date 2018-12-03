@@ -40,8 +40,6 @@ class NearMaxentClassifier : BaseClassifier() {
                 data.classifier.add(result)
             }
         }
-
-        data.classifier.log("classifier")
         return handleNext(data)
     }
     //endregion

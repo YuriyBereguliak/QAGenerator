@@ -1,6 +1,5 @@
 package com.bereguliak.processor.generator.processor.ner
 
-import com.bereguliak.generator.utility.log
 import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
 import com.bereguliak.processor.model.entity.DataChain
 import com.bereguliak.processor.model.entity.Tokens
@@ -50,9 +49,6 @@ class NerDetectorChain : BaseGeneratorChain() {
         if (name.isNotEmpty()) {
             data.ner.add(name)
         }
-
-        token.tokens.toList().toString().log()
-        name.log()
     }
     //endregion
 

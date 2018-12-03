@@ -25,7 +25,7 @@ class PluralMaxentClassifier : BaseClassifier() {
         val context = arrayOf("a=1", "b=0")
         val outcomeProbs = loadedMaxentModel.eval(context)
         val outcome = loadedMaxentModel.getBestOutcome(outcomeProbs)
-        outcome.log()
+
         endTime(data.ner.size)
         return handleNext(data)
     }
