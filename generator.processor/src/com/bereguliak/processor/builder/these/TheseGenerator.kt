@@ -8,7 +8,22 @@ import com.bereguliak.processor.model.entity.Theses
 class TheseGenerator(data: DataChain) : BaseBuilder<Theses>(data) {
     //region BaseBuilder
     override fun generate(): Theses {
-        return Theses(DEFAULT_THESES_TITLE, data.ner.distinct().joinToString(separator = "\n"))
+        startTime()
+
+        val theses = Theses(DEFAULT_THESES_TITLE, data.ner.distinct().joinToString(separator = "\n"))
+
+        endTime(data.ner.size)
+        return theses
+    }
+    //endregion
+
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "Theses"
     }
     //endregion
 }

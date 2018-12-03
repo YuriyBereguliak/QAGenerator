@@ -9,6 +9,8 @@ import org.jsoup.Jsoup
 class SimpleGoogleSearchGenerator(data: DataChain) : BaseBuilder<List<SearchData>>(data) {
     //region BaseBuilder
     override fun generate(): List<SearchData> {
+        startTime()
+
         val resultList = mutableListOf<SearchData>()
         data.ner.distinct().forEach { ner ->
             val searchURL = "$GOOGLE_SEARCH_URL$QUESTION$ner$NUMBER$GOOGLE_SEARCH_RESULT_FOR_ITEM"
@@ -21,8 +23,14 @@ class SimpleGoogleSearchGenerator(data: DataChain) : BaseBuilder<List<SearchData
                 resultList.add(SearchData(ner, linkText, linkHref.buildUrl()))
             }
         }
+
+        endTime(data.ner.size)
         return resultList.toList()
     }
+    //endregion
+
+    //region TimeHandler
+    override fun methodName() = TAG
     //endregion
 
     //region Utility API
@@ -39,6 +47,8 @@ class SimpleGoogleSearchGenerator(data: DataChain) : BaseBuilder<List<SearchData
         private const val ATTRIBUTE_KEY = "href"
         private const val MOZILLA_AGENT = "Mozilla/5.0"
         private const val CONCAT = "&"
+
+        private const val TAG = "UrlSearch"
     }
     //endregion
 }
