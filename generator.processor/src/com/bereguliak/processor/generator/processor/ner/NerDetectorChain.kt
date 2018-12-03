@@ -30,7 +30,11 @@ class NerDetectorChain : BaseGeneratorChain() {
             writeToResultData(doubleTokensResult, token, data)
         }
 
-        endTime(data.tokens.size)
+        var numberOfTokens =0
+        data.tokens.forEach {
+            numberOfTokens += it.tokens.size
+        }
+        endTime(numberOfTokens)
         return handleNext(data)
     }
     //endregion
