@@ -9,6 +9,10 @@ import java.io.File
 
 class SentenceDetectorChain : BaseGeneratorChain() {
 
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
         val modelPath = data.config.sentenceModelPath
@@ -18,7 +22,15 @@ class SentenceDetectorChain : BaseGeneratorChain() {
         result.forEach {
             data.sentences.add(Sentence(it))
         }
+
+        endTime(data.sourceText.length)
         return handleNext(data)
+    }
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "SentenceDetector"
     }
     //endregion
 }

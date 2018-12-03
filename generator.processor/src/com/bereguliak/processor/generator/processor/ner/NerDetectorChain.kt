@@ -12,6 +12,10 @@ import java.io.File
 
 class NerDetectorChain : BaseGeneratorChain() {
 
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
         val path = data.config.nerModelPath
@@ -27,6 +31,7 @@ class NerDetectorChain : BaseGeneratorChain() {
             writeToResultData(doubleTokensResult, token, data)
         }
 
+        endTime(data.tokens.size)
         return handleNext(data)
     }
     //endregion
@@ -48,6 +53,12 @@ class NerDetectorChain : BaseGeneratorChain() {
 
         token.tokens.toList().toString().log()
         name.log()
+    }
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "NerChain"
     }
     //endregion
 }

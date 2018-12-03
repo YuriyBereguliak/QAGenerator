@@ -1,8 +1,9 @@
 package com.bereguliak.processor.generator.core.chain
 
+import com.bereguliak.processor.generator.core.time.BaseTimeHandler
 import com.bereguliak.processor.model.entity.DataChain
 
-abstract class BaseGeneratorChain : GeneratorChain {
+abstract class BaseGeneratorChain : BaseTimeHandler(), GeneratorChain {
 
     private var nextChain: GeneratorChain? = null
 
@@ -16,6 +17,7 @@ abstract class BaseGeneratorChain : GeneratorChain {
         return if (nextChain == null) {
             data
         } else {
+            startTime()
             nextChain!!.handle(data)
         }
     }

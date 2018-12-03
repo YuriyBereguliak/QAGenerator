@@ -10,6 +10,11 @@ import java.util.zip.GZIPInputStream
 
 
 class PluralMaxentClassifier : BaseClassifier() {
+
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
         val inputStream = FileInputStream(data.config.pluralModelPath)
@@ -21,7 +26,14 @@ class PluralMaxentClassifier : BaseClassifier() {
         val outcomeProbs = loadedMaxentModel.eval(context)
         val outcome = loadedMaxentModel.getBestOutcome(outcomeProbs)
         outcome.log()
+        endTime(data.ner.size)
         return handleNext(data)
+    }
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "PluralClassifier"
     }
     //endregion
 }

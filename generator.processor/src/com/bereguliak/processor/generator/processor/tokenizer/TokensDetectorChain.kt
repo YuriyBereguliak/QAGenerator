@@ -8,6 +8,10 @@ class TokensDetectorChain : BaseGeneratorChain() {
 
     private var tokenizer: TrainedTokenizer? = null
 
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region TokensDetectorChain
     override fun handle(data: DataChain): DataChain {
         tokenizer = TrainedTokenizer(data.config.tokenizerModelPath)
@@ -15,7 +19,15 @@ class TokensDetectorChain : BaseGeneratorChain() {
             val result = tokenizer!!.tokenize(sentence.text)
             data.tokens.add(Tokens(result))
         }
+
+        endTime(data.sentences.size)
         return handleNext(data)
+    }
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "TokensDetector"
     }
     //endregion
 }

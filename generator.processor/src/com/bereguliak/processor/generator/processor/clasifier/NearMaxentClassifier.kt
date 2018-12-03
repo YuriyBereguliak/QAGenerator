@@ -7,6 +7,10 @@ import com.bereguliak.processor.model.entity.DataChain
 
 class NearMaxentClassifier : BaseClassifier() {
 
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
         val mutableListOf = mutableListOf(
@@ -39,6 +43,12 @@ class NearMaxentClassifier : BaseClassifier() {
 
         data.classifier.log("classifier")
         return handleNext(data)
+    }
+    //endregion
+
+    //region Utility structures
+    companion object {
+        private const val TAG = "NearMaxent"
     }
     //endregion
 }
