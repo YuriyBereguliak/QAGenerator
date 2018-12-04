@@ -17,12 +17,20 @@ abstract class BaseTimeHandler : TimeHandler, TimeController {
         endTime = System.currentTimeMillis()
 
         ("Statistics :: ${methodName()} :: number of items :: $numberOfItems :: time :: " +
-                "${calculateExecutionTime()} seconds")
+                "${calculateExecutionTime()} " +
+                "")
                 .logWithOffset()
     }
     //endregion
 
     //region Utility API
-    private fun calculateExecutionTime() = ((endTime - startTime) / 1000) % 60
+    private fun calculateExecutionTime(): String {
+        val milliseconds = endTime - startTime
+        val seconds = (milliseconds / 1000) % 60
+        return when (seconds) {
+            0L -> "$milliseconds milliseconds"
+            else -> "$seconds seconds"
+        }
+    }
     //endregion
 }

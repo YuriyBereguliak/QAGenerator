@@ -17,7 +17,6 @@ abstract class BaseGeneratorChain : BaseTimeHandler(), GeneratorChain {
         return if (nextChain == null) {
             data
         } else {
-            startTime()
             nextChain!!.handle(data)
         }
     }

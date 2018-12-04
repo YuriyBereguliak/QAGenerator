@@ -17,6 +17,7 @@ class NerDetectorChain : BaseGeneratorChain() {
 
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
+        startTime()
         val path = data.config.nerModelPath
         val detectorModel = TokenNameFinderModel(File(path))
         val nameFinder = NameFinderME(detectorModel)

@@ -15,6 +15,7 @@ class SentenceDetectorChain : BaseGeneratorChain() {
 
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
+        startTime()
         val modelPath = data.config.sentenceModelPath
         val detectorModel = SentenceModel(File(modelPath))
         val sentenceDetector = SentenceDetectorME(detectorModel)

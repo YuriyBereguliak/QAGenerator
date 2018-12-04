@@ -11,6 +11,7 @@ class CleanerChain : BaseGeneratorChain() {
 
     //region BaseGeneratorChain
     override fun handle(data: DataChain): DataChain {
+        startTime()
         val result = data.sourceText
                 .replace("[^0-9\\-+*?=&%$§!^#:;\\\\\",_²³°\\[\\]{}<>|~]", " ")
                 .replace(",", " ")

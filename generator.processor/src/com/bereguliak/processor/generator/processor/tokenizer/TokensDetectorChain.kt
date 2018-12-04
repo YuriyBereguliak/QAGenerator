@@ -14,6 +14,7 @@ class TokensDetectorChain : BaseGeneratorChain() {
 
     //region TokensDetectorChain
     override fun handle(data: DataChain): DataChain {
+        startTime()
         tokenizer = TrainedTokenizer(data.config.tokenizerModelPath)
         data.sentences.forEach { sentence ->
             val result = tokenizer!!.tokenize(sentence.text)
