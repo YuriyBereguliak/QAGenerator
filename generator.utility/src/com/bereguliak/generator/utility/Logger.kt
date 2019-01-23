@@ -10,7 +10,7 @@ fun Exception.logError() {
 }
 
 fun String.log() {
-    System.out.println(this)
+//    System.out.println(this)
 }
 
 fun <T> MutableList<T>.log(type: String) {

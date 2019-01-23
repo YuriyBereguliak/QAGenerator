@@ -1,9 +1,7 @@
 package com.bereguliak.processor.generator.processor.ner
 
-import com.bereguliak.generator.utility.getNerNameBinModelPath
-import com.bereguliak.generator.utility.log
 import com.bereguliak.processor.generator.core.chain.BaseGeneratorChain
-import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.DataChain
 import com.bereguliak.processor.model.entity.Tokens
 import com.bereguliak.processor.model.entity.buildDoubleTokens
 import opennlp.tools.namefind.NameFinderME
@@ -13,9 +11,15 @@ import java.io.File
 
 class NerDetectorChain : BaseGeneratorChain() {
 
+    //region TimeHandler
+    override fun methodName() = TAG
+    //endregion
+
     //region BaseGeneratorChain
-    override fun handle(data: ReaderChunk): ReaderChunk {
-        val detectorModel = TokenNameFinderModel(File(getNerNameBinModelPath()))
+    override fun handle(data: DataChain): DataChain {
+        startTime()
+        val path = data.config.nerModelPath
+        val detectorModel = TokenNameFinderModel(File(path))
         val nameFinder = NameFinderME(detectorModel)
 
         data.tokens.forEach { token ->
@@ -27,12 +31,17 @@ class NerDetectorChain : BaseGeneratorChain() {
             writeToResultData(doubleTokensResult, token, data)
         }
 
+        var numberOfTokens =0
+        data.tokens.forEach {
+            numberOfTokens += it.tokens.size
+        }
+        endTime(numberOfTokens)
         return handleNext(data)
     }
     //endregion
 
     //region Utility API
-    private fun writeToResultData(names: Array<Span>, token: Tokens, data: ReaderChunk) {
+    private fun writeToResultData(names: Array<Span>, token: Tokens, data: DataChain) {
         var name = ""
         names.forEach { span ->
             for (i in span.start until span.end) {
@@ -45,9 +54,12 @@ class NerDetectorChain : BaseGeneratorChain() {
         if (name.isNotEmpty()) {
             data.ner.add(name)
         }
+    }
+    //endregion
 
-        token.tokens.toList().toString().log()
-        name.log()
+    //region Utility structures
+    companion object {
+        private const val TAG = "NerChain"
     }
     //endregion
 }

@@ -1,22 +1,21 @@
 package com.bereguliak.generator.train.ner
 
+import com.bereguliak.configuration.train.TrainConfig
 import com.bereguliak.generator.train.MainTrainContainer.Companion.DEFAULT_LANGUAGE
 import com.bereguliak.generator.train.core.BaseDetectorTraining
-import com.bereguliak.generator.utility.getNerNameBinModelPath
-import com.bereguliak.generator.utility.getNerNameTrainPath
 import opennlp.tools.namefind.*
 import opennlp.tools.util.PlainTextByLineStream
 import opennlp.tools.util.TrainingParameters
 import java.io.FileOutputStream
 
-class NerDetectorTraining : BaseDetectorTraining() {
+class NerDetectorTraining(private val config: TrainConfig) : BaseDetectorTraining() {
 
     private lateinit var nameFinderModel: TokenNameFinderModel
 
     //region BaseDetectorTraining
-    override fun getTrainPath() = getNerNameTrainPath()
+    override fun getTrainPath() = config.nerTrainPath
 
-    override fun getDestinationModelPath() = getNerNameBinModelPath()
+    override fun getDestinationModelPath() = config.nerModelPath
 
     override fun train(lineStream: PlainTextByLineStream) {
         val dataStream = NameSampleDataStream(lineStream)

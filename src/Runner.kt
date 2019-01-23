@@ -1,14 +1,26 @@
+import com.bereguliak.configuration.*
+import com.bereguliak.configuration.processor.ProcessorConfig
 import com.bereguliak.generator.utility.log
 import com.bereguliak.generator.utility.logWithOffset
-import com.bereguliak.processor.builder.SimpleQuestionGenerator
-import com.bereguliak.processor.builder.TheseGenerator
+import com.bereguliak.processor.builder.question.SimpleQuestionGenerator
+import com.bereguliak.processor.builder.search.SimpleGoogleSearchGenerator
+import com.bereguliak.processor.builder.these.TheseGenerator
 import com.bereguliak.processor.generator.TextGeneration
-import com.bereguliak.processor.model.entity.ReaderChunk
+import com.bereguliak.processor.model.entity.DataChain
 import com.bereguliak.processor.model.listeners.OnTextGeneratorResult
 
 fun main(args: Array<String>) {
+    val generatorConfiguration = ProcessorConfig.build {
+        tokenizerModelPath = getTokenizerBinModelPath()
+        sentenceModelPath = getSentenceBinModelPath()
+        chunkerModelPath = getChunkerModelPath()
+        nerModelPath = getNerNameBinModelPath()
+        posModelPath = getPosBinModelPath()
+        pluralModelPath = getPluralModelPath()
+    }
+
     val textGeneration = TextGeneration(object : OnTextGeneratorResult {
-        override fun onResult(data: ReaderChunk) {
+        override fun onResult(data: DataChain) {
             data.sentences.log("Sentence")
             data.tokens.log("Tokens")
 
@@ -19,6 +31,9 @@ fun main(args: Array<String>) {
             val questions = SimpleQuestionGenerator(data).generate()
             questions.title.logWithOffset()
             questions.text.log()
+
+            val query = SimpleGoogleSearchGenerator(data).generate()
+            query.toMutableList().log("Посилання для навчання")
         }
     })
 
@@ -32,5 +47,5 @@ fun main(args: Array<String>) {
             " Критерій повинен бути достатнім  , тобто показувати, коли деяка скінченна множина тестів достатня. " +
             " Оцінка результатів виконання програми на наборі тестів з метою ухвалення рішення про продовження або зупинку тестування. "
 
-    textGeneration.runTextGenerator(sentence)
+    textGeneration.runTextGenerator(sentence, generatorConfiguration)
 }
